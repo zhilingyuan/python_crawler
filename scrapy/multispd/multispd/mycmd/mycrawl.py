@@ -13,7 +13,7 @@ class Command(ScrapyCommand):
         return "[options] <spider>"
 
     def short_desc(self):
-        return "Run a spider"
+        return "Run a spider"#命令描述信息
 
     def add_options(self, parser):
         ScrapyCommand.add_options(self, parser)
@@ -48,11 +48,20 @@ class Command(ScrapyCommand):
             self.settings.set('FEED_FORMAT', opts.output_format, priority='cmdline')
 
     def run(self, args, opts):
-        if len(args) < 1:
-            raise UsageError()
-        elif len(args) > 1:
-            raise UsageError("running 'scrapy crawl' with more than one spider is no longer supported")
-        spname = args[0]
+        #if len(args) < 1:
+        #    raise UsageError()
+        #elif len(args) > 1:
+        #    raise UsageError("running 'scrapy crawl' with more than one spider is no longer supported")
+        #spname = args[0]
 
-        self.crawler_process.crawl(spname, **opts.spargs)
+        #self.crawler_process.crawl(spname, **opts.spargs)
+        #self.crawler_process.start()
+        spd_loader_list=self.crawler_process.spider_loader.list()
+        for spname in spd_loader_list or args:
+            self.crawler_process.crawl(spname,**opts.spargs)
+            print('crawlers started is '+spname)
         self.crawler_process.start()
+
+        
+        
+        

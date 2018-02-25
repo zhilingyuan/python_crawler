@@ -14,7 +14,7 @@ BOT_NAME = 'multispd'
 SPIDER_MODULES = ['multispd.spiders']
 NEWSPIDER_MODULE = 'multispd.spiders'
 
-
+COMMANDS_MODULE='multispd.mycmd'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'multispd (+http://www.yourdomain.com)'
 
