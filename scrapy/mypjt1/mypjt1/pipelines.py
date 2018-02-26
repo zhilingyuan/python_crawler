@@ -11,10 +11,13 @@ class Mypjt1Pipeline(object):
         self.file=codecs.open('.txt','wb',encoding='utf-8')
         import json
         '''同上
+            self.conn=pymysql.connect(host='',user='',passwd='',db='')
         '''
     def process_item(self, item, spider):
         '''
         i=json.dumps(dict(item)) #dict item 转换成字典
+
+        self.conn.query('')
         '''
         l=str(item)+'\n'
         print(l)
