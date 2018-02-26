@@ -6,10 +6,19 @@ from scrapy.http import Request
 
 class QtspdSpider(scrapy.Spider):
     name = 'qtspd'
-    allowed_domains = ['58pic.com']
-    start_urls = ['http://www.58pic.com/tb']
-
+    allowed_domains = ['jd.com']
+    start_urls = ['https://list.jd.com/list.html?cat=670%2C671%2C672&go=0']
+    
     def parse(self, response):
+        from scrapy.shell import inspect_response
+        inspect_response(response,self)
+        
         item=QtpjtItem()
-        paturl=
-        pass
+        paturl='<img width="220" height="220" data-img="1" data-lazy-img="//(.+?\.jpg)'
+        item["picurl"]=re.compile(paturl).findall(str(response.body))
+        item["picid"]=re.compile(paturl).findall(str(response.body))
+        for i in range(2,4):
+            nexturl='https://list.jd.com/list.html?cat=670%2C671%2C672&go='+str(i)
+            yield Request(nexturl,callback=self.parse)#为什么会为空 items
+            
+        

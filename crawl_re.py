@@ -39,6 +39,7 @@ result1=re.search(pattern1,string)
 result2=re.search(pattern2,string)#mathc 从头开始匹配
                                   #search 整个
                                  #sub 查找 替换
+result1=re.compile(pattern1).findall(string)
 print(result1)
 print(result2)
-print(result1.group())
+#print(result1.group())

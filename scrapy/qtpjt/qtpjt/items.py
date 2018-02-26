@@ -13,4 +13,4 @@ class QtpjtItem(scrapy.Item):
     # name = scrapy.Field()
     picurl=scrapy.Field()
     picid=scrapy.Field()
-    pass
+    

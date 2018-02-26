@@ -10,7 +10,8 @@ class QtpjtPipeline(object):
     def process_item(self, item, spider):
         for i in range(0,len(item["picurl"])):
             thispic=item["picurl"][i]
-            trueurl=thispic#+"_1024.jpg"
-            localpath="D:/pi"+item["picid"][i]+".jpg"
+            trueurl=thispic
+            
+            localpath="D://"+item["picid"][i]
             url.request.urlretrieve(tureurl,filename=localpath)
         return item
