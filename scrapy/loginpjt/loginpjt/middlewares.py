@@ -3,16 +3,12 @@
 # Define here the models for your spider middleware
 #
 # See documentation in:
-<<<<<<< HEAD
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-=======
-# http://doc.scrapy.org/en/latest/topics/spider-middleware.html
->>>>>>> 0bc082ca80ebf66ef49c729f470107bb3a21850e
 
 from scrapy import signals
 
 
-class MzituSpiderMiddleware(object):
+class LoginpjtSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -24,22 +20,14 @@ class MzituSpiderMiddleware(object):
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
-<<<<<<< HEAD
     def process_spider_input(self, response, spider):
-=======
-    def process_spider_input(response, spider):
->>>>>>> 0bc082ca80ebf66ef49c729f470107bb3a21850e
         # Called for each response that goes through the spider
         # middleware and into the spider.
 
         # Should return None or raise an exception.
         return None
 
-<<<<<<< HEAD
     def process_spider_output(self, response, result, spider):
-=======
-    def process_spider_output(response, result, spider):
->>>>>>> 0bc082ca80ebf66ef49c729f470107bb3a21850e
         # Called with the results returned from the Spider, after
         # it has processed the response.
 
@@ -47,11 +35,7 @@ class MzituSpiderMiddleware(object):
         for i in result:
             yield i
 
-<<<<<<< HEAD
     def process_spider_exception(self, response, exception, spider):
-=======
-    def process_spider_exception(response, exception, spider):
->>>>>>> 0bc082ca80ebf66ef49c729f470107bb3a21850e
         # Called when a spider or process_spider_input() method
         # (from other spider middleware) raises an exception.
 
@@ -59,11 +43,7 @@ class MzituSpiderMiddleware(object):
         # or Item objects.
         pass
 
-<<<<<<< HEAD
     def process_start_requests(self, start_requests, spider):
-=======
-    def process_start_requests(start_requests, spider):
->>>>>>> 0bc082ca80ebf66ef49c729f470107bb3a21850e
         # Called with the start requests of the spider, and works
         # similarly to the process_spider_output() method, except
         # that it doesn’t have a response associated.
@@ -75,9 +55,8 @@ class MzituSpiderMiddleware(object):
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
 
-<<<<<<< HEAD
 
-class MzituDownloaderMiddleware(object):
+class LoginpjtDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -122,17 +101,3 @@ class MzituDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
-=======
-#防盗链
-class MeiZiTu(object):
-
-    def process_request(self, request, spider):
-        '''设置headers和切换请求头
-        :param request: 请求体
-        :param spider: spider对象
-        :return: None
-        '''
-        referer = request.meta.get('referer', None)
-        if referer:
-            request.headers['referer'] = referer
->>>>>>> 0bc082ca80ebf66ef49c729f470107bb3a21850e
