@@ -32,7 +32,8 @@ class LoginspdSpider(scrapy.Spider):
     start_urls = ['http://douban.com/']
     
     def parse(self, response):
-        captcha=response.xpath('//img(@id="captcha_image")@src').extract()
+        
+        captcha=response.xpath('//img[@id="captcha_image"]/@src').extract()#这里开始使得时候用错了括弧
         '''
             xpath 规则
             nodeA/nodeB：nodeA为根节点，nodeA下的所有nodeB节点；等价于nodeB。
@@ -75,6 +76,7 @@ class LoginspdSpider(scrapy.Spider):
 
             轴？？？
         '''
+        
         if len(captcha)>0:
             print("此时有验证码")
             localpath="D:captcha.png"
@@ -95,6 +97,7 @@ class LoginspdSpider(scrapy.Spider):
                 }
            
         else:
+        
             print("没有验证码")
             data={
                 "form_email":"1282449098@qq.com",
