@@ -3,6 +3,14 @@
 # Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
+<<<<<<< HEAD
+# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+class MzituPipeline(object):
+    def process_item(self, item, spider):
+        return item
+=======
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 #图片管道
 from scrapy.pipelines.images import ImagesPipeline
@@ -71,3 +79,4 @@ if __name__=="__main__":
     #没什么意思 测试下strip好不好用
     a = '我是一个？\*|“<>:/错误的字符串'
     print(strip(a))
+>>>>>>> 0bc082ca80ebf66ef49c729f470107bb3a21850e
