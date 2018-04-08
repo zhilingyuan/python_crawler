@@ -90,8 +90,8 @@ class LoginspdSpider(scrapy.Spider):
             cv2.destroyAllWindows()
             captcha_value=input()
             data={
-                "form_email":"1282449098@qq.com",
-                "form_password":"yzlno1pass1",
+                "form_email":"12******@qq.com",
+                "form_password":"*****",
                 "captcha-solution":captcha_value,
                 "redir":"https://www.douban.com/people/128735118/"
                 }
