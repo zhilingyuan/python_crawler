@@ -22,4 +22,5 @@ class IppoolItem(scrapy.Item):
     speed=scrapy.Field()
     time=scrapy.Field()
     date=scrapy.Field()
+    rand_value=scrapy.Field()
     pass

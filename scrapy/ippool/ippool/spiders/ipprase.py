@@ -5,6 +5,7 @@ import re
 import numpy as np
 import datetime
 from ippool.items import IppoolItem
+import random
 
 class IppraseSpider(scrapy.Spider):
     name = 'ipprase'
@@ -46,8 +47,9 @@ class IppraseSpider(scrapy.Spider):
                 'protocol': protocol,
                 'port': port,
                 'types': _type,
-                'speed':speed,
-                'time':time,
+                'speed':float(speed),
+                'time':float(time),
+                'rand_value':random.random()
                 #'date':today,
             })
 
